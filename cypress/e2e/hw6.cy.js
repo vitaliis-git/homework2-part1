@@ -8,7 +8,7 @@ describe('Home work 6', () => {
       position: '[ng-reflect-value="top-right"]',
       title: 'Top right!',
       content: 'Primary!',
-      time: '5000',
+      time: '1000',
       type: '[ng-reflect-value="primary"]'
     },
     expectedResult: {
@@ -23,7 +23,7 @@ describe('Home work 6', () => {
       position: '[ng-reflect-value="top-left"]',
       title: 'Top left!',
       content: 'Success!',
-      time: '6000',
+      time: '1000',
       type: '[ng-reflect-value="success"]'
     },
     expectedResult: {
@@ -35,10 +35,10 @@ describe('Home work 6', () => {
     }},
 
     {testData: {
-      position: 'ng-reflect-value="bottom-left"',
+      position: '[ng-reflect-value="bottom-left"]',
       title: 'Bottom left!',
       content: 'Info!',
-      time: '7000',
+      time: '1000',
       type: '[ng-reflect-value="info"]'
     },
     expectedResult: {
@@ -50,10 +50,10 @@ describe('Home work 6', () => {
     }},
 
     {testData: {
-      position: 'ng-reflect-value="bottom-right"',
+      position: '[ng-reflect-value="bottom-right"]',
       title: 'Bottom right!',
       content: 'Warning!',
-      time: '8000',
+      time: '1000',
       type: '[ng-reflect-value="warning"]'
     },
     expectedResult: {
@@ -64,10 +64,10 @@ describe('Home work 6', () => {
       position: 'style="justify-content: flex-end; align-items: flex-end;"'
     }}
   ]
-      tests.forEach(({testData, expectedResult}) => {
+  testPopup.forEach(({testData, expectedResult}) => {
         it(`Test ${testData}`, () => {
           cy.visit('https://sanitarskyi-ngx-admin.herokuapp.com/');
-          cy.get('[src="assets/images/material-dark-theme.jpg"]').click();
+          cy.get('[alt="Material Dark Theme"]', {timeout: 10000}).click();
           cy.get('[class="menu-title ng-tns-c141-19"]').click();
           cy.get('[title="Toastr"]').click();
           cy.get('[icon="chevron-down-outline"]').eq(1).click();
